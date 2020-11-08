@@ -1,5 +1,5 @@
 # API-VEICULOS
-#### API-VEICULOS is an API to help you create, read, update and delete vehicles. Below are instructions on how to access these terminals. We have tests to make sure our API security is ok.
+#### API-VEICULOS is an API to help you create, read, update and delete vehicles. Below are instructions on how to access endpoint. We have tests to make sure our API security is ok.
 
 ## Used technologies
 ##### * [Ruby]https://www.ruby-lang.org/pt/: version ruby 2.5.1p57
@@ -11,21 +11,21 @@
 &nbsp;
 
 ## What you can do
-  - show all veiculos
-  - show 1 veiculo
-  - Criate veiculo
-  - update veiculo
-  - delete veiculo
+  - show all veiculos ::: GET /api/veiculos(.:format)
+  - show 1 veiculo :::  GET /api/veiculos/:id(.:format) 
+  - Create veiculo ::: POST /api/veiculos(.:format)
+  - update veiculo ::: PUT /api/veiculos/:id(.:format)
+  - delete veiculo ::: DELETE /api/veiculos/:id(.:format)
 
 
 
 ## Installation
-```API-VEICULOS 
-requires [Ruby]https://www.ruby-lang.org/pt/: 
-requires [Rails]https://rubyonrails.org/:
-requires [Rspec]https://rspec.info/:
-requires [Postman]https://www.postman.com/
-```
+API-VEICULOS 
+- requires [Ruby]https://www.ruby-lang.org/pt/
+- requires [Rails]https://rubyonrails.org/
+- requires [Rspec]https://rspec.info/
+- requires [Postman]https://www.postman.com/
+
 Run postman and start the server.
 
 ```sh
