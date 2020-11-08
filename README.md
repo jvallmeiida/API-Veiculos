@@ -11,11 +11,11 @@
 &nbsp;
 
 ## What you can do
-  - Mostrar all veiculos
-  - Mostrar 1 veiculo
-  - Criar veiculo
-  - Atualizar veiculo
-  - Apagar veiculo
+  - show all veiculos
+  - show 1 veiculo
+  - Criate veiculo
+  - update veiculo
+  - delete veiculo
 
 
 
@@ -26,12 +26,23 @@ API-VEICULOS requires [Ruby]https://www.ruby-lang.org/pt/: run
              requires [Rspec]https://rspec.info/:
              requires [Postman]https://www.postman.com/
 
-Install the postman and Dependencies and start the server.
+Run postman and start the server.
 
 ```sh
-$ snap install postman
+$ postman
 $ cd Veiculos
 $ rails S
 ```
+
+
+## instructions for using the postman
+
+After starting postman, make sure that "rails s" is running. Open postman and call your endpoint with the desired method.
+
+## Tests
+
+To run the tests with Rspec just run the command "bundle exec rspec spec", tested each method.
+
+
 
 After that you can access at http://localhost:3000/
