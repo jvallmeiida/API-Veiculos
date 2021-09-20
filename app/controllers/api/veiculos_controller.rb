@@ -1,45 +1,63 @@
 class Api::VeiculosController < Api::ApiController
 
   def index
-    @veiculos = Veiculo.all
+    load_veiculos
 
     render json: @veiculos
   end
-  
+
   def show
-    @veiculos = Veiculo.find(params[:id])
-    
+    load_veiculo
+
+    render json: @veiculo
+  end
+
+  def create
+    build_veiculo
+    save_veiculo
+
+    render json: @veiculo
+  end
+
+  def update
+    load_veiculo
+    build_veiculo
+    update_veiculo
+
+    render json: @veiculo
+  end
+
+  def destroy
+    load_veiculo
+    destroy_veiculo
+
     render json: @veiculos
   end
-  
-  def create
-    @veiculo = Veiculo.new(veiculo_params)
-    if @veiculo.save 
-      render json: @veiculo, status: :created
-    else
-      render json: @veiculo.errors, status: :unprocessable_entity
-    end
-  end
-  
-  def update
-    @veiculo = Veiculo.find(params[:id])
-   
-    if @veiculo.update(veiculo_params)
-      render json: @veiculo
-    else
-      render json: @veiculo.errors, status: :unprocessable_entity
-    end
-  end
-  
-  def destroy
-    
-    @veiculo = Veiculo.find(params[:id])
-    @veiculo.destroy  
-  end
-  
+
   private
-  
-    def veiculo_params
-      params.permit(:marca, :veiculo, :ano, :descricao, :vendido)
-    end
+
+  def load_veiculos
+    @veiculos ||= veiculo_scope
+  end
+
+  def load_veiculo
+    @veiculo ||= veiculo_scope.find(params[:id])
+  end
+
+  def build_veiculo
+    @veiculo ||= Veiculo.new
+    @veiculo.attributes = veiculo_params
+  end
+
+  def destroy_veiculo
+    render json: @veiculo.errors, status unprocessable_entity unless @veiculo.destroy
+  end
+
+  def save_veiculo
+    render json: @veiculo.errors, status: :unprocessable_entity unless @veiculo.save
+  end
+
+  def update_veiculo
+    render json: @veiculo.errors, status: :unprocessable_entity unless @veiculo.update
+  end
 end
