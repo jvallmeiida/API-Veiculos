@@ -42,14 +42,20 @@ class Api::VeiculosController < Api::ApiController
 
   def destroy_veiculo
     render json: @veiculo.errors, status: :unprocessable_entity unless @veiculo.destroy
+
+    render json: @veiculo, status: :destroyed
   end
 
   def save_veiculo
     render json: @veiculo.errors, status: :unprocessable_entity unless @veiculo.save
+
+    render json: @veiculo, status: :created
   end
 
   def update_veiculo
     render json: @veiculo.errors, status: :unprocessable_entity unless @veiculo.update
+
+    render json: @veiculo, status: :updated
   end
 
   def veiculo_params
