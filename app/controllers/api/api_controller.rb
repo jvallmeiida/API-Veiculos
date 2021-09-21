@@ -1,7 +1,5 @@
 class Api::ApiController < ApplicationController
-  def veiculo_params
-    params.permit(:marca, :veiculo, :ano, :descricao, :vendido)
-  end
+  respond_to :json
 
   def veiculo_scope
     Veiculo.all
